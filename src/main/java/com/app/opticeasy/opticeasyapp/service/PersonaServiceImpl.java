@@ -20,13 +20,13 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     @Override
-    public Persona guardarPersona(Persona persona) {
-        return personaRepository.save(persona);
+    public void guardarPersona(Persona persona) {
+         personaRepository.save(persona);
     }
 
     @Override
-    public Optional<Persona> buscarPersonaPorId(Long id) {
-        return personaRepository.findById(id);
+    public Persona buscarPersonaPorId(Long id) {
+        return  personaRepository.findById(id).orElse(null);
     }
 
     @Override

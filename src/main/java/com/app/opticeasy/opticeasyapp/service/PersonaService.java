@@ -9,11 +9,11 @@ public interface PersonaService {
 
     public List<Persona> buscarPersonas();
 
-    public Persona guardarPersona(Persona persona);
+    public void guardarPersona(Persona persona);
 
     public Persona actualizarPersona(Long id, Persona persona);
 
-    public Optional<Persona> buscarPersonaPorId(Long id);
+    public Persona buscarPersonaPorId(Long id);
 
     public void  eliminarPersonaPorId(Long id);
 }

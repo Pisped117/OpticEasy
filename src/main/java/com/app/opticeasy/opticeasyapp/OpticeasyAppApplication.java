@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -25,29 +26,17 @@ public class OpticeasyAppApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		findOne();
+	}
 
-
-		//Metodo para buscar una persona por su ID
-		/*Optional<Persona> persona = personaService.buscarPersonaPorId(3L);
-		if (persona.isPresent()){
-			System.out.println("Persona encontrada: " + persona);
-		} else {
-			System.out.println("Persona no encontrada. ");
-		}*/
-
-
-		//Metodo para listar todas las personas de la tabla
-		//List<Persona> personas = personaService.buscarPersonas();
-		//personas.stream().forEach(persona -> System.out.println(persona));
-
-
+	public void save(){
 
 		//Metodo para guardar o actualizar persona
 		Persona persona = new Persona();
 		//Si queremos guardar una nueva persona comentamos el ID, si queremos actualizar una existente, descomentamos el ID y agregamos uno que exista
 		//persona.setIdPersona(3L);
-		persona.setApellido("Juan Sebastian");
-		persona.setNombre("Romero Castillo");
+		persona.setApellido("Romero Castillo");
+		persona.setNombre("Juan Sebastian");
 		persona.setCorreo("sebastian@gmail.com");
 		persona.setDireccion("Bosa");
 		persona.setFechaCreacion(new Date());
@@ -59,10 +48,23 @@ public class OpticeasyAppApplication implements CommandLineRunner {
 		persona.setTipoDocumento(tipoDocumento);
 		personaService.guardarPersona(persona);
 
+	}
+
+	public void find() {
+		//Metodo para listar todas las personas de la tabla
+		List<Persona> personas = personaService.buscarPersonas();
+		personas.stream().forEach(persona -> System.out.println(persona));
+	}
+
+	public void findOne() {
+		//Metodo para buscar una persona por su ID
+		System.out.println(personaService.buscarPersonaPorId(5l));
+	}
+
+	public void deletePerson() {
 
 		//Metodo para eliminar persona
-		//personaService.eliminarPersonaPorId(2L);
-
+		personaService.eliminarPersonaPorId(4L);
 
 	}
 }
