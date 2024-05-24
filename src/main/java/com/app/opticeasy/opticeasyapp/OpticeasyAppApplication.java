@@ -2,7 +2,9 @@ package com.app.opticeasy.opticeasyapp;
 
 import com.app.opticeasy.opticeasyapp.models.Persona;
 import com.app.opticeasy.opticeasyapp.models.TipoDocumento;
+import com.app.opticeasy.opticeasyapp.presentation.PersonaFx;
 import com.app.opticeasy.opticeasyapp.service.PersonaServiceImpl;
+import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,15 +16,15 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-public class OpticeasyAppApplication implements CommandLineRunner {
+public class OpticeasyAppApplication {
 
-	@Autowired
-	private PersonaServiceImpl personaService;
+
 
 	public static void main(String[] args) {
-		SpringApplication.run(OpticeasyAppApplication.class, args);
+		//SpringApplication.run(OpticeasyAppApplication.class, args);
+		Application.launch(PersonaFx.class, args);
 	}
-
+/*
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -66,5 +68,5 @@ public class OpticeasyAppApplication implements CommandLineRunner {
 		//Metodo para eliminar persona
 		personaService.eliminarPersonaPorId(4L);
 
-	}
+	}*/
 }
